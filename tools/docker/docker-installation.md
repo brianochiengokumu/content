@@ -75,5 +75,10 @@ To create the `docker` group and add your user:
 $ sudo groupadd docker && sudo gpasswd -a ${USER} docker && sudo systemctl restart docker
 $ newgrp docker
 ```
+If this doesn't seem to work try the following:
+```
+$ sudo usermod -aG docker $USER 
+$ newgrp docker
+```
 
 You have to log out and log back in (or restart Docker daemon and use `newgrp` command as mentioned here) for these changes to take effect. Then you can verify if your changes were successful by running Docker without `sudo`.
